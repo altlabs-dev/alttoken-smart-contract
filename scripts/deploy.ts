@@ -2,12 +2,12 @@ import { ethers } from 'hardhat'
 
 async function main() {
 
-  const tutorialTokenFactory = await ethers.getContractFactory('AltToken')
-  const tutorialToken = await tutorialTokenFactory.deploy(ethers.utils.parseUnits('100'))
+  const altTokenFactory = await ethers.getContractFactory('AltToken')
+  const altToken = await altTokenFactory.deploy(ethers.utils.parseUnits('100'))
 
-  await tutorialToken.deployed()
+  await altToken.deployed()
 
-  console.log('TutorialToken deployed to:', tutorialToken.address)
+  console.log('AltToken deployed to:', altToken.address)
 }
 
 main().catch((error) => {
