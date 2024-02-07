@@ -10,34 +10,34 @@ chai.use(chaiAsPromised)
 
 const { expect } = chai
 
-describe('TutorialToken', () => {
-  let tutorialTokenFactory: AltToken__factory
-  let tutorialToken: AltToken
+describe('AltToken', () => {
+  let altTokenFactory: AltToken__factory
+  let altToken: AltToken
 
   describe('Deployment', () => {
     let deployer: Signer
 
     beforeEach(async () => {
       [deployer] = await ethers.getSigners()
-      tutorialTokenFactory = new AltToken__factory(deployer)
-      tutorialToken = await tutorialTokenFactory.deploy(100)
-      await tutorialToken.deployed()
+      altTokenFactory = new AltToken__factory(deployer)
+      altToken = await altTokenFactory.deploy(100)
+      await altToken.deployed()
     })
 
     it('should have the correct name', async () => {
-      expect(await tutorialToken.name()).to.equal('Tutorial')
+      expect(await altToken.name()).to.equal('Alt')
     })
 
     it('should have the correct symbol', async () => {
-      expect(await tutorialToken.symbol()).to.equal('TUT')
+      expect(await altToken.symbol()).to.equal('TUT')
     })
 
     it('should have the correct total supply', async () => {
-      expect((await tutorialToken.totalSupply()).toString()).to.equal('100')
+      expect((await altToken.totalSupply()).toString()).to.equal('100')
     })
 
     it('should have correct balance after deployment', async () => {
-      expect(await tutorialToken.balanceOf(await deployer.getAddress())).to.equal('100')
+      expect(await altToken.balanceOf(await deployer.getAddress())).to.equal('100')
     })
   })
 })
