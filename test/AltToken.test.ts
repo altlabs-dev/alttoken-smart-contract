@@ -20,16 +20,15 @@ describe('AltToken', () => {
     beforeEach(async () => {
       [deployer] = await ethers.getSigners()
       altTokenFactory = new AltToken__factory(deployer)
-      altToken = await altTokenFactory.deploy(100)
-      await altToken.deployed()
+      altToken = await altTokenFactory.deploy()
     })
 
     it('should have the correct name', async () => {
-      expect(await altToken.name()).to.equal('Alt')
+      expect(await altToken.name()).to.equal('AltToken')
     })
 
     it('should have the correct symbol', async () => {
-      expect(await altToken.symbol()).to.equal('TUT')
+      expect(await altToken.symbol()).to.equal('AT')
     })
 
     it('should have the correct total supply', async () => {
